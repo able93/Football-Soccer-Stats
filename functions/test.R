@@ -2,8 +2,8 @@ library(readxl)
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
-worldd <- read_xlsx("worldd.xlsx")
-worldrank <- read_xlsx("wcrank.xlsx")
+worldd <- read_xlsx("data/worldd.xlsx")
+worldrank <- read_xlsx("data/wcrank.xlsx")
 
 rank2 <- function(year1,year2,country1,country2,country3){
   
