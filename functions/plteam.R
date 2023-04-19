@@ -1,5 +1,5 @@
 library(readxl)
-prem <- read_xlsx("pleague.xlsx")
+prem <- read_xlsx("data/pleague.xlsx")
 
 pclub <- function(team_name,year){
   prem$Week <- as.integer(prem$Week)
