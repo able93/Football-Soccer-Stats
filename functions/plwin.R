@@ -1,5 +1,5 @@
 library(readxl)
-prem1 <- read_xlsx("plwinner.xlsx")
+prem1 <- read_xlsx("data/plwinner.xlsx")
 pwinner <- function(year1,year2){
   prem1$Year <- as.integer(prem1$Year)
   result <- filter(prem1, Year >= year1 & Year <= year2 
