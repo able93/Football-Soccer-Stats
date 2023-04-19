@@ -10,22 +10,22 @@ options(shiny.sanitize.errors = FALSE)
 
 
 
-champs <- read.csv("champions_league.csv")
-champs2 <- read.csv("champions_league.csv")
-prem <- read_xlsx("pleague.xlsx")
-prem1 <- read_xlsx("plwinner.xlsx")
-world <- read_xlsx("world_cup2.xlsx")
-worldd <- read_xlsx("worldd.xlsx")
-worldrank <- read_xlsx("wcrank.xlsx")
-ptssa <-read.csv("ptsa.csv", header = TRUE)
+champs <- read.csv("data/champions_league.csv")
+champs2 <- read.csv("data/champions_league.csv")
+prem <- read_xlsx("data/pleague.xlsx")
+prem1 <- read_xlsx("data/plwinner.xlsx")
+world <- read_xlsx("data/world_cup2.xlsx")
+worldd <- read_xlsx("data/worldd.xlsx")
+worldrank <- read_xlsx("data/wcrank.xlsx")
+ptssa <-read.csv("data/ptsa.csv", header = TRUE)
 
-source("plwin.R")
-source("plteam.R")
-source("champ2.R")
-source("champ.R")
-source("wcwinner.R")
-source("test.R")
-source("ttest.R")
+source("functions/plwin.R")
+source("functions/plteam.R")
+source("functions/champ2.R")
+source("functions/champ.R")
+source("functions/wcwinner.R")
+source("functions/test.R")
+source("functions/ttest.R")
 
 
 shinythemes::themeSelector()
@@ -170,7 +170,7 @@ server <- function(input, output, session) {
   ###############################   Champions league club search
   
   dataInput_champ <- eventReactive(input$actionbar_champ,{
-    source("champ.R")
+    source("functions/champ.R")
     winner(input$club)
   })
   dataInput_champ <- data.table::copy(dataInput_champ)
@@ -181,7 +181,7 @@ server <- function(input, output, session) {
   ###############################  champions league winner search
   
   dataInput_champ2 <- eventReactive(input$actionbar_champ2,{
-    source("champ2.R")
+    source("functions/champ2.R")
     season(input$champe[1],input$champe[2])
   })
   dataInput_champ2 <- data.table::copy(dataInput_champ2)
@@ -190,7 +190,7 @@ server <- function(input, output, session) {
   })
   
   dataInput_champ3 <- eventReactive(input$actionbar_champ2,{
-    source("champ2.R")
+    source("functions/champ2.R")
     graph(input$champe[1],input$champe[2])
   })
   
@@ -199,7 +199,7 @@ server <- function(input, output, session) {
   })
   
   dataInput_champ4 <- eventReactive(input$actionbar_champ2,{
-    source("champ2.R")
+    source("functions/champ2.R")
     champtage(input$champe[1],input$champe[2])
   })
   
@@ -214,7 +214,7 @@ server <- function(input, output, session) {
   
   #################################   World cup
   dataInput_world1 <- eventReactive(input$actionw1,{
-    source("wcwinner.R")
+    source("functions/wcwinner.R")
     wcwinner(input$world1)
   })
   dataInput_world1 <- data.table::copy(dataInput_world1)
@@ -225,7 +225,7 @@ server <- function(input, output, session) {
   
               ###graph###
   dataInput_world2 <- eventReactive(input$actionw1,{
-    source("wcwinner.R")
+    source("functions/wcwinner.R")
     wcwinner2(input$world1)
   })
   output$world2<- renderPlot({
@@ -235,7 +235,7 @@ server <- function(input, output, session) {
   
       ###country graph###
   dataInput_world3 <- eventReactive(input$actionw2,{
-    source("wcwinner.R")
+    source("functions/wcwinner.R")
     #ranking(input$rank,input$wcyear)
     rankk(input$wcyear)
   })
@@ -246,7 +246,7 @@ server <- function(input, output, session) {
   
     #####FIFA Ranking######
   dataInput_wcrankk <- eventReactive(input$actionw3,{
-    source("test.R")
+    source("functions/test.R")
     rank2(input$country2[1],input$country2[2],input$country1[1],
           input$country1[2],input$country1[3])
   })
@@ -258,7 +258,7 @@ server <- function(input, output, session) {
   
   #####Ranking Test######
   dataInput_rankt1 <- eventReactive(input$actionwrt,{
-    source("ttest.R")
+    source("functions/ttest.R")
     ttest1(input$years[1],input$years[2],input$worldrt)
   })
   output$rankt1<- renderPlot({
@@ -266,7 +266,7 @@ server <- function(input, output, session) {
   })
   
   dataInput_rankt2 <- eventReactive(input$actionwrt,{
-    source("ttest.R")
+    source("functions/ttest.R")
     ttest2(input$years[1],input$years[2],input$worldrt)
   })
   dataInput_rankt2 <- data.table::copy(dataInput_rankt2)
@@ -277,7 +277,7 @@ server <- function(input, output, session) {
   
   
   dataInput_rankt3 <- eventReactive(input$actionwrt,{
-    source("ttest.R")
+    source("functions/ttest.R")
     ttest3(input$years[1],input$years[2],input$worldrt)
   })
   output$rankt3<- renderText({
@@ -285,7 +285,7 @@ server <- function(input, output, session) {
   })
   
   dataInput_rankt4 <- eventReactive(input$actionwrt,{
-    source("ttest.R")
+    source("functions/ttest.R")
     ttest4(input$years[1],input$years[2],input$worldrt)
   })
   output$rankt4<- renderText({
@@ -294,7 +294,7 @@ server <- function(input, output, session) {
   
   
   dataInput_rankt5 <- eventReactive(input$actionwrt,{
-    source("ttest.R")
+    source("functions/ttest.R")
     ttest5(input$years[1],input$years[2],input$worldrt)
   })
   output$rankt5<- renderPrint({
@@ -304,7 +304,7 @@ server <- function(input, output, session) {
   ####################################### premier league win
   
   dataInput_pclub <- eventReactive(input$action_prclub,{
-    source("plteam.R")
+    source("functions/plteam.R")
     pclub(input$prclub, input$premseason)
   })
   dataInput_pclub <- data.table::copy(dataInput_pclub)
@@ -317,7 +317,7 @@ server <- function(input, output, session) {
   ##########################################  premier league team
   
   dataInput_pwin <- eventReactive(input$action_prem_win,{
-    source("plwin.R")
+    source("functions/plwin.R")
     pwinner(input$premwin[1],input$premwin[2])
   })
   dataInput_pwin <- data.table::copy(dataInput_pwin)
@@ -326,7 +326,7 @@ server <- function(input, output, session) {
   })
   
   dataInput_premgraph <- eventReactive(input$action_prem_win,{
-    source("plwin.R")
+    source("functions/plwin.R")
     premgraph(input$premwin[1],input$premwin[2])
   })
   
@@ -335,7 +335,7 @@ server <- function(input, output, session) {
   })
   
   dataInput_premtage <- eventReactive(input$action_prem_win,{
-    source("plwin.R")
+    source("functions/plwin.R")
     premtage(input$premwin[1],input$premwin[2])
   })
   
