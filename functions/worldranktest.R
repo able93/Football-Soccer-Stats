@@ -3,7 +3,7 @@ library(reshape2)
 
 world <- read_xlsx("data/world_cup2.xlsx")
 worldrank <- read_xlsx("data/wcrank.xlsx")
-
+worldd <- read_xlsx("worldrk.xlsx")
 # 
 # 
 # ##############FIFA men ranking
