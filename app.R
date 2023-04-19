@@ -10,14 +10,14 @@ options(shiny.sanitize.errors = FALSE)
 
 
 
-champs <- read.csv("champions_league.csv")
-champs2 <- read.csv("champions_league.csv")
-prem <- read_xlsx("pleague.xlsx")
-prem1 <- read_xlsx("plwinner.xlsx")
-world <- read_xlsx("world_cup2.xlsx")
-worldd <- read_xlsx("worldd.xlsx")
-worldrank <- read_xlsx("wcrank.xlsx")
-ptssa <-read.csv("ptsa.csv", header = TRUE)
+champs <- read.csv("data/champions_league.csv")
+champs2 <- read.csv("data/champions_league.csv")
+prem <- read_xlsx("data/pleague.xlsx")
+prem1 <- read_xlsx("data/plwinner.xlsx")
+world <- read_xlsx("data/world_cup2.xlsx")
+worldd <- read_xlsx("data/worldd.xlsx")
+worldrank <- read_xlsx("data/wcrank.xlsx")
+ptssa <-read.csv("data/ptsa.csv", header = TRUE)
 
 source("plwin.R")
 source("plteam.R")
