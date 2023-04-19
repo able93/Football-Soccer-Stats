@@ -2,10 +2,10 @@ library(readxl)
 library(reshape2)
 library(data.table)
 
-world <- read_xlsx("world_cup2.xlsx")
-worldd <- read_xlsx("worldrk.xlsx")
-worldrank <- read_xlsx("wcrank.xlsx")
-ptssa <-read.csv("ptsa.csv", header = TRUE)
+world <- read_xlsx("data/world_cup2.xlsx")
+worldd <- read_xlsx("data/worldrk.xlsx")
+worldrank <- read_xlsx("data/wcrank.xlsx")
+ptssa <-read.csv("data/ptsa.csv", header = TRUE)
 
 ttest1 <- function(year1, year2, name){
   worlda <- filter(ptssa, Year >= year1 & Year <= year2)
