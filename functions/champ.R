@@ -1,5 +1,5 @@
 
-champs <- read.csv("champions_league.csv", header = FALSE)
+champs <- read.csv("data/champions_league.csv", header = FALSE)
 colnames(champs) <- c("Season",	"Year",	"Winner",	"Winner_Country",	"Winner_Score",
                       "Opponent_Score",		"Opponent",	 "Opponent_Country",	
                       "Venue",	"Attendance")
