@@ -2,7 +2,6 @@ library(readxl)
 library(reshape2)
 
 world <- read_xlsx("data/world_cup2.xlsx")
-worldd <- read_xlsx("data/worldrk.xlsx")
 worldrank <- read_xlsx("data/wcrank.xlsx")
 
 # 
