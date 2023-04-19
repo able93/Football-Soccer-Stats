@@ -1,9 +1,9 @@
 library(readxl)
 library(reshape2)
 
-world <- read_xlsx("world_cup2.xlsx")
-worldd <- read_xlsx("worldd.xlsx")
-worldrank <- read_xlsx("wcrank.xlsx")
+world <- read_xlsx("data/world_cup2.xlsx")
+worldd <- read_xlsx("data/worldd.xlsx")
+worldrank <- read_xlsx("data/wcrank.xlsx")
 
 wcwinner <- function(team_name){
   world$Winner_score <- as.integer(world$Winner_score)
