@@ -9,4 +9,4 @@ To access the app, you can use the Shinyapp.io link:
 https://ablelin.shinyapps.io/soccer/
 
 You can also access the WebApp using:
-runGitHub("Football-Soccer-Stats", "able93")
+shiny::runGitHub("Football-Soccer-Stats", "able93")
